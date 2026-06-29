@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  background: var(--bg-dark);
+
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  border: none;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  transition: var(--transition);
+}
+
+.background-gradient {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background: linear-gradient(135deg, #ff4d8d 0%, #7c4dff 50%, #2563eb 100%);
+}
+
+.background-gradient::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  backdrop-filter: blur(120px);
+}

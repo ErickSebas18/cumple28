@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/welcome.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/inventory.css">
+    <link rel="stylesheet" href="../css/album.css">
+    <link rel="stylesheet" href="../css/modals.css">
+    <link rel="stylesheet" href="../css/letter.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <title>Álbum de Cumpleaños</title>
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+    <div class="floating-hearts"> <span>❤️</span> <span>✨</span> <span>🎂</span> <span>💖</span> <span>🌸</span> </div>
+
+    <section id="welcome-screen">
+
+        <div class="welcome-card">
+
+            <img src="../img/portada.jpeg" alt="Portada" class="cover-image">
+
+            <h1>🎂 Álbum de Cumpleaños</h1>
+
+            <p>
+                Responde las preguntas,
+                abre sobres y completa el álbum.
+            </p>
+
+            <button id="start-btn">
+
+                <i class="fa-solid fa-gift"></i>
+
+                Comenzar
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <main id="app" class="hidden">
+        <header class="topbar">
+            <div class="topbar-left">
+                <h2>Melany's Album</h2>
+            </div>
+
+            <div class="topbar-right">
+                <div class="progress-box">
+                    <span id="progress-text">0/28</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="content">
+            <aside class="inventory-panel">
+                <div class="panel-title">
+                    <i class="fa-solid fa-images"></i>
+                    <h3>Mis cromos</h3>
+                </div>
+                <div id="inventory"></div>
+            </aside>
+
+            <section class="album-wrapper">
+
+                <div class="album-header">
+
+                    <button id="prev-page">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                    </button>
+
+                    <h3 id="page-title">
+
+                        Página 1 de 4
+
+                    </h3>
+
+                    <button id="next-page">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- LIBRO -->
+
+                <div class="album-book">
+
+                    <div class="album-spine"></div>
+
+                    <div class="album-page active-page" data-page="1">
+
+                    
+                        <div class="page-grid">
+
+                            <div class="slot" data-id="1">1</div>
+                            <div class="slot" data-id="2">2</div>
+                            <div class="slot" data-id="3">3</div>
+                            <div class="slot" data-id="4">4</div>
+                            <div class="slot" data-id="5">5</div>
+                            <div class="slot" data-id="6">6</div>
+                            <div class="slot" data-id="7">7</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="album-page" data-page="2">
+
+                
+                        <div class="page-grid">
+
+                            <div class="slot" data-id="8">8</div>
+                            <div class="slot" data-id="9">9</div>
+                            <div class="slot" data-id="10">10</div>
+                            <div class="slot" data-id="11">11</div>
+                            <div class="slot" data-id="12">12</div>
+                            <div class="slot" data-id="13">13</div>
+                            <div class="slot" data-id="14">14</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="album-page" data-page="3">
+
+
+                        <div class="page-grid">
+
+                            <div class="slot" data-id="15">15</div>
+                            <div class="slot" data-id="16">16</div>
+                            <div class="slot" data-id="17">17</div>
+                            <div class="slot" data-id="18">18</div>
+                            <div class="slot" data-id="19">19</div>
+                            <div class="slot" data-id="20">20</div>
+                            <div class="slot" data-id="21">21</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="album-page" data-page="4">
+
+
+                        <div class="page-grid">
+
+                            <div class="slot" data-id="22">22</div>
+                            <div class="slot" data-id="23">23</div>
+                            <div class="slot" data-id="24">24</div>
+                            <div class="slot" data-id="25">25</div>
+                            <div class="slot" data-id="26">26</div>
+                            <div class="slot" data-id="27">27</div>
+                            <div class="slot" data-id="28">28</div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </section>
+    </main>
+    <div id="question-modal" class="modal hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>Pregunta</h2>
+            </div>
+            <div class="modal-body">
+                <p id="question-text">Aqui aparecerá la pregunta.</p>
+                <input type="text" id="answer-input" placeholder="Escribe tu respuesta...">
+            </div>
+            <div class="modal-footer">
+                <button id="answer-btn">Responder</button>
+            </div>
+        </div>
+    </div>
+    <div id="pack-modal" class="hidden">
+        <div class="pack-container">
+            <h2>¡Has conseguido un sobre!</h2>
+            <div id="pack">
+                <img src="../img/sobre.jpeg" alt="Sobre">
+            </div>
+            <button id="open-pack-btn">Abrir Sobre</button>
+        </div>
+    </div>
+
+    <div id="stickers-modal" class="hidden">
+
+        <div class="stickers-container">
+
+            <h2>
+
+                ✨ Nuevos Cromos ✨
+
+            </h2>
+
+            <div id="new-stickers">
+
+            </div>
+
+            <button id="continue-btn">
+
+                Ir al Álbum
+
+            </button>
+
+        </div>
+
+    </div>
+    <section id="birthday-letter" class="hidden">
+
+    <div class="letter-overlay"></div>
+
+    <div class="letter-paper">
+
+        <h1>❤️ Feliz Cumpleaños, Mi Amor ❤️</h1>
+
+        <div class="letter-content">
+
+            <p>
+                Si has llegado hasta aquí, significa que lograste completar este pequeño álbum.
+                Y aunque parezca un simple juego, en realidad quería regalarte algo mucho más especial.
+            </p>
+
+            <p>
+                Cada uno de estos <strong>28 cromos</strong> representa un año de tu vida.
+                Veintiocho años llenos de aprendizajes, sueños, desafíos, risas, lágrimas y momentos que te han convertido en la increíble mujer que eres hoy.
+            </p>
+
+            <p>
+                Este álbum es un recordatorio de lo mucho que has crecido como persona,
+                de la fuerza que tienes incluso cuando tú misma no la ves,
+                de la luz que llevas contigo y de lo afortunado que soy por poder acompañarte en una parte de este maravilloso viaje llamado vida.
+            </p>
+
+            <p>
+                Cada página representa un capítulo distinto.
+                Algunos fueron fáciles, otros seguramente no tanto,
+                pero todos dejaron una enseñanza y ayudaron a escribir la historia que hoy celebramos.
+            </p>
+
+            <p>
+                Gracias por permitirme formar parte de tus recuerdos,
+                por regalarme tu tiempo, tu paciencia, tu cariño y tu forma tan bonita de ver el mundo.
+                Gracias por cada conversación, cada risa, cada abrazo y por todos esos pequeños momentos que, sin darnos cuenta, terminaron convirtiéndose en mis favoritos.
+            </p>
+
+            <p>
+                Deseo de todo corazón que este nuevo año llegue lleno de oportunidades,
+                de viajes, de sueños cumplidos, de mucha salud,
+                de tranquilidad y de personas que siempre sepan valorar el gran corazón que tienes.
+            </p>
+
+            <p>
+                Y, sobre todo, deseo seguir creando nuevos recuerdos contigo,
+                para que algún día este álbum de 28 cromos se quede corto y podamos llenar muchos más.
+            </p>
+
+            <p>
+                Nunca olvides lo especial que eres,
+                lo mucho que vales
+                y la enorme felicidad que provocas en las personas que tienen la suerte de compartir la vida contigo.
+            </p>
+
+            <p>
+                Hoy celebramos tu cumpleaños,
+                pero yo también celebro el inmenso regalo que ha sido conocerte.
+            </p>
+
+            <p style="text-align:center; margin-top:40px; font-size:1.4rem; font-weight:600; color:#ff4d8d;">
+                ❤️ Te amo muchísimo ❤️
+            </p>
+
+            <p style="text-align:center; margin-top:15px;">
+                Feliz cumpleaños, mi amor.<br>
+                Que este sea solo otro hermoso capítulo de una historia que apenas comienza.
+            </p>
+
+        </div>
+
+        <div class="letter-signature">
+
+            Con todo mi amor,<br>
+            <strong>Tu persona favorita ❤️</strong>
+
+        </div>
+
+    </div>
+
+</section>
+    <canvas id="confetti-canvas"></canvas>
+    <script src="../js/config.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/questions.js"></script>
+    <script src="../js/packs.js"></script>
+    <script src="../js/album.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>

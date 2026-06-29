@@ -1,0 +1,171 @@
+/* ===================================== */
+/* ANIMACIONES BASE */
+/* ===================================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:.15;
+    }
+
+    50%{
+        opacity:.25;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ===================================== */
+/* CORAZONES FLOTANTES */
+/* ===================================== */
+
+.floating-hearts span{
+
+    position:absolute;
+
+    font-size:2.5rem;
+
+    animation:float 12s linear infinite;
+
+    opacity:.15;
+}
+
+/* ===================================== */
+/* VARIACIONES DE POSICIÓN */
+/* ===================================== */
+
+.floating-hearts span:nth-child(1){
+    left:10%;
+    animation-duration:14s;
+}
+
+.floating-hearts span:nth-child(2){
+    left:25%;
+    animation-duration:10s;
+}
+
+.floating-hearts span:nth-child(3){
+    left:50%;
+    animation-duration:13s;
+}
+
+.floating-hearts span:nth-child(4){
+    left:75%;
+    animation-duration:11s;
+}
+
+.floating-hearts span:nth-child(5){
+    left:90%;
+    animation-duration:15s;
+}
+
+/* ===================================== */
+/* BOTONES INTERACTIVOS */
+/* ===================================== */
+
+button{
+
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+}
+
+button:active{
+
+    transform:translateY(0);
+}
+
+/* ===================================== */
+/* APARICIÓN SUAVE GENERAL */
+/* ===================================== */
+
+.fade-in{
+
+    animation:fadeIn .5s ease forwards;
+}
+
+/* ===================================== */
+/* SLOT FILL ANIMATION */
+/* ===================================== */
+
+.slot img{
+
+    animation:popIn .35s ease;
+}
+
+@keyframes popIn{
+
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ===================================== */
+/* MODAL POP MÁS SUAVE */
+/* ===================================== */
+
+.modal-card{
+
+    animation:modalPop .25s ease;
+}
+
+@keyframes modalPop{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ===================================== */
+/* SOBRE (PACK) ANIMACIÓN */
+/* ===================================== */
+
+#pack img{
+
+    animation:packFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes packFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}

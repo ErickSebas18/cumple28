@@ -1,0 +1,310 @@
+/* ===================================== */
+/* FONDO */
+/* ===================================== */
+
+#birthday-letter{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#334155 0%,#111827 45%,#020617 100%);
+
+    z-index:99999;
+}
+
+/* ===================================== */
+/* LUZ DE FONDO */
+/* ===================================== */
+
+.letter-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(circle at center,
+        rgba(255,255,255,.12),
+        transparent 70%);
+
+    backdrop-filter:blur(6px);
+
+    z-index:1;
+}
+
+/* ===================================== */
+/* PAPEL */
+/* ===================================== */
+
+.letter-paper{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(900px,90vw);
+
+    max-height:88vh;
+
+    overflow-y:auto;
+
+    padding:70px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdf8 0%,
+            #faf5eb 100%
+        );
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.45);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    animation:paperIn 1.2s ease;
+
+}
+
+/* ===================================== */
+/* TEXTURA */
+/* ===================================== */
+
+.letter-paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,.015),
+            rgba(0,0,0,.015) 2px,
+            transparent 2px,
+            transparent 6px
+        );
+
+    opacity:.35;
+
+    pointer-events:none;
+}
+
+/* ===================================== */
+/* BRILLO */
+/* ===================================== */
+
+.letter-paper::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:80%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    animation:shine 6s infinite;
+
+    pointer-events:none;
+}
+
+/* ===================================== */
+/* TITULO */
+/* ===================================== */
+
+.letter-paper h1{
+
+    text-align:center;
+
+    font-size:2.7rem;
+
+    color:#e11d48;
+
+    margin-bottom:35px;
+
+    font-weight:700;
+}
+
+/* ===================================== */
+/* CONTENIDO */
+/* ===================================== */
+
+.letter-content{
+
+    color:#374151;
+
+    font-size:1.12rem;
+
+    line-height:2.1;
+
+    text-align:justify;
+
+}
+
+.letter-content p{
+
+    margin-bottom:22px;
+}
+
+/* ===================================== */
+/* FIRMA */
+/* ===================================== */
+
+.letter-signature{
+
+    margin-top:45px;
+
+    text-align:right;
+
+    font-size:1.2rem;
+
+    color:#111827;
+
+    font-style:italic;
+
+    font-weight:600;
+}
+
+/* ===================================== */
+/* SCROLL */
+/* ===================================== */
+
+.letter-paper::-webkit-scrollbar{
+
+    width:8px;
+}
+
+.letter-paper::-webkit-scrollbar-track{
+
+    background:transparent;
+}
+
+.letter-paper::-webkit-scrollbar-thumb{
+
+    background:#d1d5db;
+
+    border-radius:20px;
+}
+
+/* ===================================== */
+/* ANIMACIONES */
+/* ===================================== */
+
+@keyframes paperIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(100px)
+            scale(.8)
+            rotate(-3deg);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+
+    }
+
+}
+
+@keyframes shine{
+
+    from{
+
+        left:-150%;
+
+    }
+
+    to{
+
+        left:180%;
+
+    }
+
+}
+
+/* ===================================== */
+/* RESPONSIVE */
+/* ===================================== */
+
+@media(max-width:768px){
+
+    #birthday-letter{
+
+        padding:20px;
+
+    }
+
+    .letter-paper{
+
+        padding:35px 28px;
+
+        max-height:92vh;
+
+    }
+
+    .letter-paper h1{
+
+        font-size:1.9rem;
+
+    }
+
+    .letter-content{
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+        text-align:left;
+
+    }
+
+    .letter-signature{
+
+        font-size:1rem;
+
+    }
+
+}
