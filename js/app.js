@@ -46,6 +46,18 @@ function finishGame(){
 
 }
 
+function backToAlbum(){
+
+    hideElement("birthday-letter");
+
+    showElement("app");
+
+    setAlbumPage(4);
+
+    state.canPlace = false;
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     initAlbum();
@@ -61,5 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("continue-btn")
         .addEventListener("click", startPlacement);
+
+    document
+    .getElementById("ir-a")
+    .addEventListener(
+        "click",
+        backToAlbum
+    );
 
 });

@@ -265,6 +265,56 @@
 
 }
 
+#ir-a {
+    background-color: #111827;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.youtube-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    margin-bottom: 20px;
+
+}
+
+.youtube-panel h2{
+
+    text-align:center;
+
+    color:#111827;
+
+    font-size:2rem;
+
+}
+
+.youtube-video{
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.4);
+
+}
+
+.youtube-video iframe{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    border:none;
+
+}
+
 /* ===================================== */
 /* RESPONSIVE */
 /* ===================================== */
